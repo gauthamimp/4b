@@ -4,3 +4,14 @@ metadata:
   name: my-config
 data:
   APP_ENV: production
+  
+cd 4b
+docker build -t python-app .
+docker build -t chethanaravi/python-app:latest
+kubectl apply -f configmap.yaml
+kubectl apply -f secret.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl get pods
+kubectl get svc
+kubectl port-forward svc/python-service 8095:80
